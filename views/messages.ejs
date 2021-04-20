@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= 'sarahah | '+loggedIn %>
+    </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./stylesheets/userAdmin.css">
+</head>
+
+<body>
+    <div id="background">
+        <nav>
+            <h1>Messages</h1>
+        </nav>
+        <div id="content">
+            <div id="warning">
+                <h3>share your homepage link to get more messages !</h3>
+            </div>
+
+
+            <% messages.forEach(function(elem){ %>
+
+            <div class="message">
+                <h3>
+                    <%= elem.messages %>
+                </h3>
+            </div>
+            <% }) %>
+
+
+            <a href="/logout">logout</a>
+        </div>
+        <div id="floatingIcons">
+            <i id="sendMsg" class="fab fa-telegram-plane"></i>
+            <i id="seeMsgs" class="far fa-comment"></i>
+            <i id="profile" class="far fa-user"></i>
+        </div>
+    </div>
+
+
+    <script>
+        var sendMsg = document.querySelector('#sendMsg');
+        var seeMsgs = document.querySelector('#seeMsgs');
+        var profile = document.querySelector('#profile');
+
+        sendMsg.addEventListener('click', function () {
+            window.location.href = "/message";
+        })
+        seeMsgs.addEventListener('click', function () {
+            window.location.href = "/messages";
+        })
+        profile.addEventListener('click', function () {
+            window.location.href = "/profile";
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Send Message</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./stylesheets/message.css">
+</head>
+<body>
+    <div id="background">
+        <div id="messageBox">
+            <h2>write a message</h2>
+            <form id="form" action="#">
+                <input type="text" id="receiver" name="username" placeholder="username of receiver">
+                <textarea name="message" id="message" placeholder="Hello There !"></textarea>
+                <button id="sendMessage">send message</button>
+            </form>
+        </div>
+        <div id="floatingIcons">
+            <i id="sendMsg" class="fab fa-telegram-plane"></i>
+            <i id="seeMsgs" class="far fa-comment"></i>
+            <i id="profile" class="far fa-user"></i>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    
+    <script>
+        var sendMsg = document.querySelector('#sendMsg');
+        var seeMsgs = document.querySelector('#seeMsgs');
+        var profile = document.querySelector('#profile');
+
+        sendMsg.addEventListener('click', function () {
+            window.location.href = "/message";
+        })
+        seeMsgs.addEventListener('click', function () {
+            window.location.href = "/messages";
+        })
+        profile.addEventListener('click', function () {
+            window.location.href = "/profile";
+        })
+
+        $('#form').submit(function (e) {
+            e.preventDefault();
+            var $receiver = $('#receiver').val();
+            var url = '/messages/' + $receiver;
+            callServerScript(url);
+        });
+
+
+        function callServerScript(url) {
+            var data = $('#form').serialize();
+            console.log(data, url);
+            $.post(url, data).done(function () { 
+                $('#sendMessage').css({"backgroundColor":"#0BAFA8", "color":"#fff"});
+                $('#sendMessage').text('sent !')
+                setTimeout(function(){
+                    $('#sendMessage').css({"backgroundColor":"#fff", "color":"#0BAFA8"});
+                    $('#sendMessage').text('send message')
+                },2000)
+            });
+
+            $('#message').val('');
+            $('#receiver').val('');
+        }
+
+    </script>
+</body>
+</html>

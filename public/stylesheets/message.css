@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #0BAFA8;
+}
+
+#messageBox{
+    width: 90%;
+    height: 60vh;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #fff;
+    overflow: auto;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+}
+
+#messageBox h2{
+    font-weight: 400;
+    font-size: 26px;
+    text-align: center;
+    color: #8f8f8f;
+}
+
+#messageBox input[type="text"]{
+    width: 100%;
+    padding: 10px 10px;
+    margin: 30px 0 10px 0;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    border: 2px solid #f0f0f0;
+}
+
+#messageBox textarea{
+    width: 100%;
+    padding: 10px;
+    height: 40%;
+    border: none;
+    border: 2px solid #f0f0f0;
+    resize: none;
+    outline: none;
+}
+
+#messageBox button{
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 100px;
+    border: none;
+    background-color: transparent;
+    border: 1px solid #0BAFA8;
+    outline: none;
+}
+
+
+#floatingIcons{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 3%;
+    right: 2%;
+    width: 70px;
+    height: 130px;
+}
+
+#floatingIcons i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    height: 30%;
+    background-color: rgb(40, 190, 153);
+    font-size: 20px;
+    color: #fff;
+    border-radius: 50%;
+    transition: all ease-in-out .2s;
+}
+
+#floatingIcons i:hover{
+    background-color: rgb(26, 128, 102);
+}

@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #0BAFA8;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 95%;
+    height: 88%;
+    overflow: auto;
+    overflow-x: hidden;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+#content h1{
+    position: relative;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+#content h1::after{
+    content: '';
+    width: 100px;
+    height: 3px;
+    background-color: rgb(52, 221, 213);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+#content form{
+    margin-top: 20px;
+}
+
+#content form input[type="text"],input[type="email"],input[type="password"]{
+    width: 100%;
+    font-size: 19px;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding: 8px 20px;
+    outline: none;
+    border: none;
+    border: 1px solid #e7e7e7;
+}
+
+#content form span{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+#content form input[type="radio"]{
+    width: 20px;
+    height: 20px;
+}
+
+#center{
+    float: left;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+textarea{
+    width: 100%;
+    height: 70px;
+    margin-top: 20px;
+    border: none;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 19px;
+    outline: none;
+}
+
+#relationshipStatus{
+    width: 60%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border: 1px solid #0BAFA8;
+    padding: 4px 10px;
+    font-size: 19px;
+    margin-top: 10px;
+}
+
+#content form input[type="submit"]{
+    display: block; 
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px 0;
+    border-radius: 100px;
+    border: none;
+    background-color: transparent;
+    border: 1px solid #0BAFA8;
+    color: #0BAFA8;
+    font-size: 17px;
+}
+
+#content form input[type="submit"]:hover{
+    background-color: #0BAFA8;
+    color: #fff;
+    cursor: pointer;
+}
+
+.red{
+    color: red;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: -6px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register | Sarahah</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">    
+    <link rel="stylesheet" href="./stylesheets/register.css">
+</head>
+
+<body>
+    <div id="background">
+        <div id="content">
+            <h1>Create Account</h1>
+            <form action="/register" method="POST">
+                <input type="text" name="name" placeholder="name" required>
+                <p class="red"></p>
+                <input id="username" type="text" name="username" placeholder="username" required>
+                <input type="email" name="email" placeholder="email" required>
+                <input type="password" name="password" placeholder="password" required>
+                <div id="center">
+                    <span>Male</span><input type="radio" name="gender" value="male">
+                </div>
+                <div id="center">
+                    <span>Female</span><input type="radio" name="gender" value="female">
+                </div>
+                <textarea name="about" id="about" placeholder="About You..." required></textarea>
+                <select name="relationshipStatus" id="relationshipStatus" required>
+                    <option value="Organization">Organization</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input id="submit" type="submit" value="SignUp">
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        var searchTimeout;
+        document.getElementById('username').onkeydown = function () {
+            if (searchTimeout != undefined) clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(callServerScript, 250);
+        };
+        function callServerScript(){
+            var error = document.querySelector('.red');
+            var valueOfInp = document.getElementById('username').value==''?null:document.getElementById('username').value;
+            var urls = '/checkusername/'+valueOfInp;
+            $.ajax({
+                url: urls
+            }).done(function (data) {
+                if(data === false){
+                    error.textContent = 'username not available';
+                    $('#submit').prop('disabled', true);
+                }
+                else{
+                    error.textContent = '';
+                    $('#submit').prop('disabled', false);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
